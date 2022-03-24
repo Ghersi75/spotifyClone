@@ -1,6 +1,6 @@
 # Welcome!
 
-This repo was created for a side projects which will be some sort of marketplace. I haven't decided what it will look like or be used for just yet, but it will be developed using React, Typescript, and Material UI to learn how to create a page with premade components. In this marketplace I will also try to create a simple backend using express and most likely postgres to handle things like products, simple login page, and saving items to cart to be retrieved at a later time.
+This repo was created for a side project. The goal of this is to try and get as close to [spotify's web player](https://open.spotify.com/) as I can while learning Material UI for the UI. I will also be using React and Typescript for the rest of the stuff. 
 
 ___
 
