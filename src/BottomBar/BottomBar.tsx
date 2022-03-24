@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Song from "./Song";
 import { styled } from '@mui/material/styles';
 import "./BottomBar.css";
 
@@ -25,33 +27,30 @@ export default function Sidebar() {
                 bottom: 0,
                 left: 0, 
                 display: "flex",
-                justifyContent: "center"
+                justifyContent: "center",
+                alignContent: "center"
             }}>
                 <Grid
                     container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
                     sx={{
                         padding: "15px"
                     }}
                 >
-                    {/* Album cover, song name, artist name, heart icon */}
-                    <Stack 
-                        direction="row"> 
-                        <Box
-                            component="img"
-                            sx={{
-                                height:55,
-                                width: 55
-                            }}
-                            src="https://i.pinimg.com/originals/85/26/ce/8526ced837dd850f7bd79e9e4ef6655a.jpg">
-
-                        </Box>
-                    </Stack>
+                    <Grid item xs={4}>
+                        <Song />
+                    </Grid>
                     
-                    <Item> Nice two </Item>
-                    <Item> Nice three </Item>
+                    <Grid item xs={4}>
+                        <Box display="flex" justifyContent="center" alignItems="center" sx={{border: "white solid 1px", height: 1, width: 1}}>
+                            <Box sx={{color: "white", }}>
+                                Nice?
+                            </Box>
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Item> Nice three </Item>
+                    </Grid>
                 </Grid>
             </Box>
         </>
