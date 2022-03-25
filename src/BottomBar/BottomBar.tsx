@@ -5,8 +5,9 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Song from "./Song";
+import PlayBar from "./PlayBar";
 import { styled } from '@mui/material/styles';
-import "./BottomBar.css";
+import VolumeAndExtras from "./VolumeAndExtras";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -33,23 +34,19 @@ export default function Sidebar() {
                 <Grid
                     container
                     sx={{
-                        padding: "15px"
+                        margin: "15px"
                     }}
                 >
-                    <Grid item xs={4}>
+                    <Grid item xs={4} sx={{ height: 1}}>
                         <Song />
                     </Grid>
                     
-                    <Grid item xs={4}>
-                        <Box display="flex" justifyContent="center" alignItems="center" sx={{border: "white solid 1px", height: 1, width: 1}}>
-                            <Box sx={{color: "white", }}>
-                                Nice?
-                            </Box>
-                        </Box>
+                    <Grid item xs={4} sx={{ height: 1}}>
+                        <PlayBar />
                     </Grid>
 
-                    <Grid item xs={4}>
-                        <Item> Nice three </Item>
+                    <Grid item xs={4} sx = {{ height: 1 }}>
+                        <VolumeAndExtras />
                     </Grid>
                 </Grid>
             </Box>

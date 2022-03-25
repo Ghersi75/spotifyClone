@@ -18,28 +18,23 @@ export default function Song() {
         <>
             {/* Album cover, song name, artist name, heart icon */}
             <Stack 
-                direction="row"> 
+                direction="row"
+                spacing={2}> 
                 <Box
                     component="img"
                     sx={{
-                        height:55,
-                        width: 55
+                        height: 55,
+                        width: 55 
                     }}
-                    src="https://t2.genius.com/unsafe/488x0/https%3A%2F%2Fimages.genius.com%2F774c218f9e0aab310f622ee742957c3d.1000x1000x1.jpg">
-                </Box>
+                    src="https://t2.genius.com/unsafe/488x0/https%3A%2F%2Fimages.genius.com%2F774c218f9e0aab310f622ee742957c3d.1000x1000x1.jpg" />
                 <Stack 
                     direction="column"
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        marginLeft: "15px"
-                        // border: "solid white 2px"
-
-                    }}>
+                    display="flex"
+                    justifyContent="center">
                     <Typography 
                         sx={{
                             color: "#fdfdfd",
-                            fontSize: "14px",
+                            fontSize: "13px",
                             // Disable highlighting for user
                             userSelect: "none"
                         }}>
@@ -60,7 +55,6 @@ export default function Song() {
                     sx={{
                         display: "flex",
                         alignItems: "center",
-                        marginLeft: "25px"
                     }}
                     display="flex"
                     justifyContent="center">
