@@ -1,9 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import Song from "./Song";
 import PlayBar from "./PlayBar";
 import { styled } from '@mui/material/styles';

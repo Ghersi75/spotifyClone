@@ -12,13 +12,25 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export default function PlayBar() {
     const [paused, setPaused] = React.useState(true);
-    const [time, setTime] = React.useState(100);
-    const [maxTime, setMaxTime] = React.useState(179)
+    const [dragging, setDragging] = React.useState(false);
+    const [time, setTime] = React.useState(0);
+    const [maxTime, setMaxTime] = React.useState(179);
 
-    const handlePauseClick = () => {
-        setPaused(!paused);
-        // Pause and play track based on whats happening. Come back later
-    }
+    React.useEffect(() => {
+        if(!paused && !dragging) {
+            if (time <= maxTime) {
+                const timerId = setTimeout(() => {
+                    setTime(curr => curr + 1);
+                }, 1000);
+
+                return () => {
+                    clearTimeout(timerId);
+                };
+            } else {
+                setTime(0);
+            }
+        }
+    })
 
     const formatTime = (time: number) => {
         if (time % 60 < 10) {
@@ -27,10 +39,20 @@ export default function PlayBar() {
         return `${Math.floor(time / 60)}:${time % 60}`
     }
 
+    const handlePauseClick = () => {
+        setPaused(!paused);
+        // Pause and play track based on whats happening. Come back later
+    }
+
     const handlePlayDrag = (e: React.SyntheticEvent | Event, newValue: number | number[]) => {
         if (typeof newValue === "number") {
             setTime(newValue);
+            setDragging(true);
         }
+    }
+
+    const handlePlayDragCommited = () => {
+        setDragging(false);
     }
 
     return(
@@ -86,12 +108,14 @@ export default function PlayBar() {
                         <Slider 
                             size="small"
                             defaultValue={time}
+                            min={0}
                             max={maxTime}
                             valueLabelDisplay="off"
                             sx={{
                                 color: "#b3b3b3",
                             }}
-                            onChange={handlePlayDrag}/>
+                            onChange={handlePlayDrag}
+                            onChangeCommitted={handlePlayDragCommited}/>
                         <Typography
                             sx={{
                                 color: "#acacac",
